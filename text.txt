@@ -1,0 +1,6 @@
+the quick brown fox jumped over the lazy dog
+upside, inside out? i defend you im coming u are coming. sacred spear explosion boy! this is a great test text
+did you know that "quotation marks" can really fuck programs up? so can other weird features
+[brackets are fun!]
+
+i wonder if empty lines will break things, or non closed quotes "

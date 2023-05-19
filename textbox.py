@@ -3,12 +3,15 @@ from buttonhandle import button
 
 def textMover(font : pygame.font.Font, text : str):
 
+    index = 0
     tally = 0
     newlnPos = [] #indicies of where newlines should go
 
     for i in font.metrics(text):
         tally += i[4] # adding up the pixel widths for all chars in the string
-        if tally > 100 and 
+        if tally > 100 and text[index] == " ":
+            #do something
+        index += 1
     
 
 

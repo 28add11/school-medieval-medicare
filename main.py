@@ -1,5 +1,6 @@
 import pygame
 from buttonhandle import button
+from textbox import textBox
 
 
 def main():
@@ -7,10 +8,16 @@ def main():
 
     gamefont = pygame.font.Font(None, 40)
 
+    testbox = textBox((65, 67, 81, 255), "ball itcher", r"text.txt")
+
     screen = pygame.display.set_mode((640, 480))
     running = True
     clock = pygame.time.Clock()
     mbu = False
+
+    screen.fill((56, 56, 56)) 
+
+    screen.blit(testbox.update(6), (0, 360, 640, 120))
 
     while running:
 
@@ -28,7 +35,6 @@ def main():
                 case pygame.MOUSEBUTTONUP:
                         mbu = True
 
-        screen.fill((56, 56, 56)) 
 
         mbu = False
 

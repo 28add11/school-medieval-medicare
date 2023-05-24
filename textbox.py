@@ -33,7 +33,7 @@ def format_string(input_string, *args):
     num_formatters = input_string.count('%s')
     num_args = len(args)
     
-    if num_args > num_formatters:
+    if num_args > num_formatters: # Dealing with removing or adding data for a mismatch in length of args to %s formatters
         args = args[:num_formatters]
     elif num_formatters > num_args:
         args += (' ',) * (num_formatters - num_args)
@@ -58,12 +58,13 @@ class textBox(pygame.sprite.Sprite):
 
         pygame.sprite.Sprite.__init__(self)
 
-    def update(self, textindex: int):
+    def update(self, textindex: int, *args):
 
 
         content = get_line_from_file(self.textpath, textindex)
         newlnPos = getNewLines(self.fontBody, content)
 
+        format_string(content, args)
 
         yOffset = 20
 

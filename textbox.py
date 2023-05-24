@@ -38,7 +38,7 @@ def format_string(input_string, *args):
     elif num_formatters > num_args:
         args += (' ',) * (num_formatters - num_args)
     
-    formatted_string = formatted_string.replace('%s', '{}').format(*args)
+    formatted_string = formatted_string.format(*args)
     return formatted_string
 
 

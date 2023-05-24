@@ -1,12 +1,16 @@
 from random import choice, choices
 
-diseaseData = {"Maggots" : {"Symptoms" : ["Worms", "Flies", "Bad things"], # Capitalised because masochism and also because you might want to display these
-                            "Treatments" : {"Picking them off" : "Flesh Decay", "3 Ounces of Pig guts" : "Death", "Nothing" : "Excruciating Pain"}}, 
+diseaseData = {"Scarlatina (Scarlet fever)" : {"Symptoms" : ["Fever", "Chills", "Sore Throat", "Head or Body ache's", "Nausea or Vomiting"], # Capitalised because masochism and also because you might want to display these
+                            "Treatments" : {"Bloodletting" : "Flesh Decay", "3 Ounces of Pig guts" : "Death", "Nothing" : "Excruciating Pain", "Surgery" : "Excrutiating pain and contamination"}}, 
                             "Cats" : {"Symptoms" : ["Cuteness", "Awesomeness", "omg"], "Treatments" : {"Doing nothing" : "Happyness", 
                                                                                                        "Adoption" : "`Grats ur a responsible cat parent"}}}
 
-symptomDialouge = {"Worms" : ["There are these little white things crawling on my skin, and they seem to be eating my flesh",
-                               "Grayson for the love of god use chatgpt for these lines"]}
+treatmentData = ("balls", "bloodletting", "3 Ounces of Pig guts" , "Nothing", "Surgery")
+
+symptomDialouge = {"Scarlatina (Scarlet Fever) " : ["*Cough* *Cough* Doctor my throat is sore, I am sickly and vomit constantly, and I have a high fever. What can you do?"]}
+
+treatmentDialouge = {"Bloodletting" : ["Oh great heavens!!! That hurts!"]
+                    "3 Ounces of pig guts" : ["Holy Saint Francis!"]}
 
 
 prevDiseases = [] #Add to this whenever a disease is used before for RNG

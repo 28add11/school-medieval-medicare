@@ -9,7 +9,7 @@ treatmentData = ("balls", "bloodletting", "3 Ounces of Pig guts" , "Nothing", "S
 
 symptomDialouge = {"Scarlatina (Scarlet Fever) " : ["*Cough* *Cough* Doctor my throat is sore, I am sickly and vomit constantly, and I have a high fever. What can you do?"]}
 
-treatmentDialouge = {"Bloodletting" : ["Oh great heavens!!! That hurts!"]
+treatmentDialouge = {"Bloodletting" : ["Oh great heavens!!! That hurts!"], 
                     "3 Ounces of pig guts" : ["Holy Saint Francis!"]}
 
 

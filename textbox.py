@@ -28,6 +28,21 @@ def getNewLines(font : pygame.font.Font, text : str) -> None:
     return newlnPos
     
 
+def format_string(input_string, *args):
+    formatted_string = input_string
+    num_formatters = input_string.count('%s')
+    num_args = len(args)
+    
+    if num_args > num_formatters:
+        args = args[:num_formatters]
+    elif num_formatters > num_args:
+        args += (' ',) * (num_formatters - num_args)
+    
+    formatted_string = formatted_string.replace('%s', '{}').format(*args)
+    return formatted_string
+
+
+
 
 class textBox(pygame.sprite.Sprite):
     '''Class to create a textbox surface for interaction similar to a visual novel'''

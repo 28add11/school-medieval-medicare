@@ -7,10 +7,12 @@ diseaseData = {"Scarlatina (Scarlet fever)" : {"Symptoms" : ["Fever", "Chills", 
 
 treatmentData = ("balls", "bloodletting", "3 Ounces of Pig guts" , "Nothing", "Surgery")
 
-symptomDialouge = {"Scarlatina (Scarlet Fever) " : ["*Cough* *Cough* Doctor my throat is sore, I am sickly and vomit constantly, and I have a high fever. What can you do?"]}
+symptomDialouge = {"Scarlatina (Scarlet Fever) " : ["*Cough* *Cough* Doctor my throat is sore, I am sickly and vomit constantly, and I have a high fever. What can you do?"}
 
 treatmentDialouge = {"Bloodletting" : ["Oh great heavens!!! That hurts!"], 
-                    "3 Ounces of pig guts" : ["Holy Saint Francis!"]}
+                    "3 Ounces of pig guts" : ["Holy Saint Francis!"],
+                    "Nothing" : ["I bite my thumb at thee!"],
+                    "Surgery" : ["*Earsplitting scream of a peasants pain*"]}
 
 
 prevDiseases = [] #Add to this whenever a disease is used before for RNG

@@ -5,3 +5,4 @@ did you know that "quotation marks" can really fuck programs up? so can other we
 
 i wonder if empty lines will break things, or non closed quotes "
 T. Thomas and Son was the American architectural firm of Thomas Thomas and his son Griffith Thomas. The firm is known for designing the Italian palazzo style Hay House in the 1850s and the First Baptist Church in New Bern, North Carolina in 1848, an early non-Episcopalian Gothic Revival architecture church for North Carolina. A second Gothic church, planned in limestone for a Reformed Dutch congregation, was built to Thomas's designs in Kingston, New York, in 1850. Thomas was a founder of the American Association of Architects in 1837.
+Sea bathing is %s in the sea or in sea water and a sea bath is a protective enclosure for sea bathing. Unlike bathing in a swimming pool, which is generally done for pleasure or exercise purposes, sea bathing was once thought to have curative or %s value.

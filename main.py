@@ -17,7 +17,7 @@ def main():
 
     screen.fill((56, 56, 56)) 
 
-    screen.blit(testbox.update(6), (0, 360, 640, 120))
+    screen.blit(testbox.update(7, "water", "swimming"), (0, 360, 640, 120))
 
     while running:
 

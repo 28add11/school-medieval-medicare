@@ -30,7 +30,7 @@ def getNewLines(font : pygame.font.Font, text : str) -> None:
 
 def format_string(input_string, *args):
     formatted_string = input_string
-    num_formatters = input_string.count('%s')
+    num_formatters = input_string.count('{}')
     num_args = len(args)
     
     if num_args > num_formatters: # Dealing with removing or adding data for a mismatch in length of args to %s formatters
@@ -59,12 +59,12 @@ class textBox(pygame.sprite.Sprite):
         pygame.sprite.Sprite.__init__(self)
 
     def update(self, textindex: int, *args):
+        '''Function to actually draw the surface on which the text is. If the string you are passing it has special formatting for variable data
+        you can pass it through the *args.'''
 
 
-        content = get_line_from_file(self.textpath, textindex)
+        content = format_string(get_line_from_file(self.textpath, textindex), *args) # *args used rather than just args as to unpack arguments to avoid passing a single tuple
         newlnPos = getNewLines(self.fontBody, content)
-
-        format_string(content, args)
 
         yOffset = 20
 

@@ -6,7 +6,7 @@ diseaseData = {"Scarlatina (Scarlet fever)" : {"Symptoms" : ["Fever", "Chills", 
                             "Cats" : {"Symptoms" : ["Cuteness", "Awesomeness", "omg"], "Treatments" : {"Doing nothing" : "Happyness", 
                                                                                                        "Adoption" : "`Grats ur a responsible cat parent"}}}
 
-treatmentData = ("balls", "bloodletting", "3 Ounces of Pig guts" , "Nothing", "Surgery")
+treatmentData = ("bloodletting", "3 Ounces of Pig guts" , "Nothing", "Surgery")
 
 symptomDialouge = {"Scarlatina (Scarlet Fever) " : ["*Cough* *Cough* Doctor my throat is sore, I am sickly and vomit constantly, and I have a high fever. What can you do?"]}
 

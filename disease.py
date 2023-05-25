@@ -3,7 +3,7 @@ from random import choice, choices
 diseaseData = {"Scarlatina (Scarlet fever)" : {"Symptoms" : ["Fever", "Chills", "Sore Throat", "Head or Body ache's", "Nausea or Vomiting"], # Capitalised because masochism and also because you might want to display these
                             "Treatments" : {"Bloodletting" : "Flesh Decay", "3 Ounces of Pig guts" : "Death", "Nothing" : "Excruciating Pain", 
                                             "Surgery" : "Excrutiating pain and contamination"}}, 
-                            "Cats" : {"Symptoms" : ["Cuteness", "Awesomeness", "omg"], "Treatments" : {"Doing nothing" : "Happyness", 
+                            "small pox" : {"Symptoms" : ["Red spots on skin", "Fever", "omg"], "Treatments" : {"Doing nothing" : "Happyness", 
                                                                                                        "Adoption" : "`Grats ur a responsible cat parent"}}}
 
 treatmentData = ("bloodletting", "3 Ounces of Pig guts" , "Nothing", "Surgery")

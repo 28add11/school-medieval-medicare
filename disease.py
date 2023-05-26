@@ -1,19 +1,20 @@
 from random import choice, choices
 
-diseaseData = {"Scarlatina (Scarlet fever)" : {"Symptoms" : ["Fever", "Chills", "Sore Throat", "Head or Body ache's", "Nausea or Vomiting"], # Capitalised because masochism and also because you might want to display these
-                            "Treatments" : {"Bloodletting" : "Flesh Decay", "3 Ounces of Pig guts" : "Death", "Nothing" : "Excruciating Pain", 
-                                            "Surgery" : "Excrutiating pain and contamination"}}, 
-                            "small pox" : {"Symptoms" : ["Red spots on skin", "Fever", "omg"], "Treatments" : {"Doing nothing" : "Happyness", 
-                                                                                                       "Adoption" : "`Grats ur a responsible cat parent"}}}
+diseaseData = {"Scarlatina (Scarlet fever)" : {"Symptoms" : ["Fever", "Chills", "Sore Throat", "Head or Body ache's", "Nausea or Vomiting",# Capitalised because masochism and also because you might want to display these
+                      "Treatments" : {"Bloodletting" : "Flesh Decay", "3 Ounces of Pig guts" : "Death", "Nothing" : "Excruciating Pain", 
+                                            "Surgery" : "Excrutiating pain and contamination", "Chemical Elixer" : "Foaming from the mouth and high possibility of death", "Strong Sage Tea" : "Decent healing effects?"}},
+               "Small Pox" : {"Symptoms" : ["Red spots on skin", "Fever", "Fatigue", "Back pain", "Abdominal pain and vomiting] }}}
 
-treatmentData = ("bloodletting", "3 Ounces of Pig guts" , "Nothing", "Surgery")
+treatmentData = ("Bloodletting", "3 Ounces of Pig guts" , "Nothing", "Surgery", "Chemical Elixer", "Strong Sage Tea")
 
-symptomDialouge = {"Scarlatina (Scarlet Fever) " : ["*Cough* *Cough* Doctor my throat is sore, I am sickly and vomit constantly, and I have a high fever. What can you do?"]}
+symptomDialouge = ("")
 
 treatmentDialouge = {"Bloodletting" : ["Oh great heavens!!! That hurts!"], 
                     "3 Ounces of pig guts" : ["Holy Saint Francis!"],
                     "Nothing" : ["I bite my thumb at thee!"],
-                    "Surgery" : ["*Earsplitting scream of a peasants pain*"]}
+                    "Surgery" : ["*Earsplitting scream of a peasants pain*"],
+                    "Chemical Elixer" : ["*Gargle* *Gargle*"],
+                    "Strong Sage Tea" : ["*Sluuuuuuuuurp...* Quite refined kind gentleperson"]}
 
 
 prevDiseases = [] #Add to this whenever a disease is used before for RNG

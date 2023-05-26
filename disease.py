@@ -29,9 +29,10 @@ def nonUsedDiseases(): # I know that I shouldn't use globals like this, but it i
 
 
 class disease():
-    '''A class for the disease and the symptoms, comes with RNG if you want to generate the disease/symptopms for you'''
+    '''A class for the disease and the symptoms, comes with RNG if you want to generate the disease/symptopms for you.
+    You can leave the disease and symptoms objects empty if you are using RNG, and vice versa if not.'''
 
-    def __init__(self, RNGtoggle : bool, disease: str, symptoms : list, RNGmaxsymptoms : int, RNGrepeat) -> None:
+    def __init__(self, RNGtoggle : bool, disease: str, symptoms : list, RNGmaxsymptoms : int, RNGrepeat : bool) -> None:
 
         if RNGtoggle:
 

@@ -3,10 +3,32 @@ from buttonhandle import button
 from textbox import textBox
 
 
+font = pygame.font.SysFont("arial", 15)
+
+
+def textboxButtonDraw(surface : pygame.Surface, textbox : textBox, mousepos : tuple, mouseButtonUp : bool, *args):
+     # Draws buttons in the main function as a seperate thing as to improve ability to actually get data from buttons
+
+    textbox.update()
+
+    buttongroup = pygame.sprite.Group()
+    pressedButton = False
+
+    argsIndex = 0
+    for i in args:
+        rect = pygame.Rect((argsIndex * 70) + 200, 2.5, 50, 25)
+        pygame.draw.rect(surface, (170, 170, 170), rect)
+        text = font.render(i, True, (10, 10, 10))
+        surface.blit(text, (argsIndex * 70 + 210, 10))
+        if rect.collidepoint(mousepos) and mouseButtonUp:
+            pressedButton = i #not returning immideatly because the other buttons need to be drawn too
+    
+    return pressedButton
+    
+
+
 def main():
     pygame.init()
-
-    gamefont = pygame.font.Font(None, 40)
 
     testbox = textBox((65, 67, 81, 255), "ball itcher", r"text.txt")
 

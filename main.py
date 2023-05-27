@@ -17,7 +17,6 @@ def main():
 
     screen.fill((56, 56, 56)) 
 
-    screen.blit(testbox.update(7, "water", "swimming"), (0, 360, 640, 120))
 
     while running:
 
@@ -26,6 +25,8 @@ def main():
         clock.tick(60)
 
         mouse = pygame.mouse.get_pos()
+        
+        screen.fill((56, 56, 56)) 
 
         #for every event, if that event is useful, do smthin
         for i in pygame.event.get():            
@@ -35,6 +36,8 @@ def main():
                 case pygame.MOUSEBUTTONUP:
                         mbu = True
 
+
+        screen.blit(testbox.updateWithButtons(6, mouse, mbu, "water", "swimming"), (0, 360, 640, 120))
 
         mbu = False
 

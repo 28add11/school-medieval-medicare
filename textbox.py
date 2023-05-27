@@ -52,8 +52,10 @@ class textBox(pygame.sprite.Sprite):
         self.titlefont = pygame.font.SysFont("arial", 15)
         self.textpath = textpath
                 
-        self.mainsurface = pygame.Surface((640, 120), pygame.SRCALPHA) # using a surface here because i would be dumb not to. Will some pixels be drawn many times? probably.
+        self.mainsurface = pygame.Surface((640, 120))
         self.fontBody = pygame.font.SysFont("arial", 15)
+        
+        self.color = color
         
         self.mainsurface.fill(color)
 
@@ -63,11 +65,12 @@ class textBox(pygame.sprite.Sprite):
         '''Function to actually draw the surface on which the text is. If the string you are passing it has special formatting for variable data
         you can pass it through the *args.'''
 
+        self.mainsurface.fill(self.color)
 
-        titleRender = self.titlefont.render(self.title, True, (255, 255, 255, 255))
+        titleRender = self.titlefont.render(self.title, True, (255, 255, 255))
         self.mainsurface.blit(titleRender, titleRender.get_rect(x=40, y=7))
 
-        pygame.draw.line(self.mainsurface, (40, 40, 40, 255), (0, 30), (640, 30))
+        pygame.draw.line(self.mainsurface, (40, 40, 40), (0, 30), (640, 30))
 
         content = format_string(get_line_from_file(self.textpath, textindex), *args) # *args used rather than just args as to unpack arguments to avoid passing a single tuple
         newlnPos = getNewLines(self.fontBody, content)
@@ -78,12 +81,12 @@ class textBox(pygame.sprite.Sprite):
             ln = content[:i]
             content = content[i:]
 
-            renderedLn = self.fontBody.render(ln, True, (255, 255, 255, 255))
+            renderedLn = self.fontBody.render(ln, True, (255, 255, 255))
             self.mainsurface.blit(renderedLn, renderedLn.get_rect(x=40, y=yOffset))
 
             yOffset += 20
         
-        renderedLn = self.fontBody.render(content, True, (255, 255, 255, 255)) # final pass to clear the final line after a newline char
+        renderedLn = self.fontBody.render(content, True, (255, 255, 255)) # final pass to clear the final line after a newline char
         self.mainsurface.blit(renderedLn, renderedLn.get_rect(x=40, y=yOffset))
 
         return self.mainsurface
@@ -91,10 +94,12 @@ class textBox(pygame.sprite.Sprite):
     def updateWithButtons(self, textindex : int, mousepos, mouseButtonUp, *args):
         '''Same as update but includes amount of buttons preportional to the amount of args. Does not support variable included body text.'''
 
-        titleRender = self.titlefont.render(self.title, True, (255, 255, 255, 255))
+        self.mainsurface.fill(self.color)
+
+        titleRender = self.titlefont.render(self.title, True, (255, 255, 255))
         self.mainsurface.blit(titleRender, titleRender.get_rect(x=40, y=7))
 
-        pygame.draw.line(self.mainsurface, (40, 40, 40, 255), (0, 30), (640, 30))
+        pygame.draw.line(self.mainsurface, (40, 40, 40), (0, 30), (640, 30))
 
         content = get_line_from_file(self.textpath, textindex)
         newlnPos = getNewLines(self.fontBody, content)
@@ -105,12 +110,12 @@ class textBox(pygame.sprite.Sprite):
             ln = content[:i]
             content = content[i:]
 
-            renderedLn = self.fontBody.render(ln, True, (255, 255, 255, 255))
+            renderedLn = self.fontBody.render(ln, True, (255, 255, 255))
             self.mainsurface.blit(renderedLn, renderedLn.get_rect(x=40, y=yOffset))
 
             yOffset += 20
         
-        renderedLn = self.fontBody.render(content, True, (255, 255, 255, 255)) # final pass to clear the final line after a newline char
+        renderedLn = self.fontBody.render(content, True, (255, 255, 255)) # final pass to clear the final line after a newline char
         self.mainsurface.blit(renderedLn, renderedLn.get_rect(x=40, y=yOffset))
         
 
@@ -118,7 +123,7 @@ class textBox(pygame.sprite.Sprite):
 
         argsIndex = 0
         for i in args:
-            buttongroup.add(button(pygame.Rect((argsIndex*56) + 60, 0, 50, 30), (70, 70, 70), i, 5, (argsIndex*56 + 70, 10)))
+            buttongroup.add(button(pygame.Rect((argsIndex * 70) + 200, 2.5, 50, 25), (170, 170, 170), i, 0, (argsIndex * 70 + 210, 10)))
             argsIndex += 1
         buttongroup.update(self.mainsurface, mousepos, mouseButtonUp, self.titlefont)
 

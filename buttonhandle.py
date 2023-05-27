@@ -34,21 +34,7 @@ class button(pygame.sprite.Sprite):
         if max(self.colorcopy) <= 245:
             self.color = (self.colorcopy[0] + self.hoverframes, self.colorcopy[1] + self.hoverframes, self.colorcopy[2] + self.hoverframes)
 
-
-        pygame.draw.circle(window, self.color, (self.rect[0], self.rect[1]), 10, draw_top_left=True, draw_bottom_left=False, draw_bottom_right=False, draw_top_right=False)
-
-        pygame.draw.circle(window, self.color, (self.rect[0] + self.rect[2], self.rect[1]), 
-            10, draw_top_left=False, draw_bottom_left=False, draw_bottom_right=False, draw_top_right=True)
-
-        pygame.draw.circle(window, self.color, (self.rect[0], self.rect[1] + self.rect[3]), 
-            10, draw_top_left=False, draw_bottom_left=True, draw_bottom_right=False, draw_top_right=False)
-
-        pygame.draw.circle(window, self.color, (self.rect[0] + self.rect[2], self.rect[1] + self.rect[3]), 
-            10, draw_top_left=False, draw_bottom_left=False, draw_bottom_right=True, draw_top_right=False)
-
-
-        pygame.draw.rect(window, self.color, pygame.Rect(self.rect[0], self.rect[1] - 10, self.rect[2], self.rect[3] + 20))
-        pygame.draw.rect(window, self.color, pygame.Rect(self.rect[0] - 10, self.rect[1], self.rect[2] + 20, self.rect[3]))
+        pygame.draw.rect(window, self.color, self.rect)
 
         text = font.render(self.text, True, (10, 10, 10))
         window.blit(text, self.textpos)

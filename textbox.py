@@ -49,6 +49,7 @@ class textBox(pygame.sprite.Sprite):
     
     def __init__(self, color : tuple, title : str, textpath : str): 
         self.title = title
+        self.titlefont = pygame.font.SysFont("arial", 15)
         self.textpath = textpath
                 
         self.mainsurface = pygame.Surface((640, 120), pygame.SRCALPHA) # using a surface here because i would be dumb not to. Will some pixels be drawn many times? probably.
@@ -63,10 +64,15 @@ class textBox(pygame.sprite.Sprite):
         you can pass it through the *args.'''
 
 
+        titleRender = self.titlefont.render(self.title, True, (255, 255, 255, 255))
+        self.mainsurface.blit(titleRender, titleRender.get_rect(x=40, y=7))
+
+        pygame.draw.line(self.mainsurface, (40, 40, 40, 255), (0, 30), (640, 30))
+
         content = format_string(get_line_from_file(self.textpath, textindex), *args) # *args used rather than just args as to unpack arguments to avoid passing a single tuple
         newlnPos = getNewLines(self.fontBody, content)
 
-        yOffset = 20
+        yOffset = 40
 
         for i in newlnPos:
             ln = content[:i]
@@ -81,3 +87,16 @@ class textBox(pygame.sprite.Sprite):
         self.mainsurface.blit(renderedLn, renderedLn.get_rect(x=40, y=yOffset))
 
         return self.mainsurface
+    
+    def updateWithButtons(self, textindex : int, *args):
+        '''Same as update but includes amount of buttons preportional to the amount of args. Does not support variable included body text.'''
+
+
+        self.update(textindex)
+
+        buttongroup = pygame.sprite.Group()
+
+        argsIndex = 0
+        for i in args:
+            buttongroup.add(button(pygame.Rect((argsIndex*56) + 60, 0, 50, 30), (70, 70, 70), i, 5, (argsIndex*56) + 70))
+            argsIndex += 1

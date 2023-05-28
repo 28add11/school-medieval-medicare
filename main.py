@@ -1,6 +1,7 @@
 import pygame
 from buttonhandle import button
 from textbox import textBox, getNewLines, stringRender
+from patient import patient
 
 pygame.init()
 
@@ -84,7 +85,7 @@ def main():
                     gameState = 1
             
             case 1:
-                pass
+                tutorialPatient = patient()
 
             case _:
                 pass

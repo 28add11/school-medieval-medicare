@@ -1,3 +1,4 @@
+from typing import Any
 import pygame
 from disease import disease
 from random import choice
@@ -27,3 +28,7 @@ class patient(pygame.sprite.Sprite):
         self.person = choice(availiblePeople) # Getting a random person from the possible files, then saving a path
         
         pygame.sprite.Sprite.__init__(self)
+    
+    def update(self, sprite, surface, spritecoords):
+        currentsprite  = pygame.image.load(self.person + r"\{}".format(sprite))
+        surface.blit(currentsprite, spritecoords)

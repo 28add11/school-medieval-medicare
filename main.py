@@ -42,6 +42,7 @@ def textboxButtonDraw(surface : pygame.Surface, textindex : int, textbox : textB
 def main():
     
     testbox = textBox((65, 67, 81), "ball itcher", r"text.txt")
+    bookSprite = pygame.image.load("book.png")
 
     screen = pygame.display.set_mode((640, 480))
     running = True
@@ -49,7 +50,9 @@ def main():
     mbu = False
 
     gameState = "newGame"
+    prevstate = ""
     currentText = 0
+    prevtext = 0
 
     newState = False
 
@@ -95,6 +98,8 @@ def main():
                     tutPatientText = textBox((65, 67, 81), tutorialPatient.person.split("\\")[1], "patientLines.txt") # Cursed string splitting to get rid of filepath
                 newState = False
 
+                
+
                 match currentText:
                     case 2:
                         tutorialPatient.update("placeholder.png", screen, (0, 0))
@@ -107,6 +112,17 @@ def main():
                         screen.blit(tutPatientText.update(currentText), (0, 360, 640, 120))
                         if mbu:
                             currentText += 1
+                
+                screen.blit(bookSprite, (565, 405))
+                if pygame.Rect(565, 405, 75, 75).collidepoint(mouse):
+                    gameState = "book"
+                    prevstate = "tutorial"
+                    prevtext = currentText
+
+                        
+            case "book":
+                pages = ["Scarlatina can manifest itself in a variety of ways, such as Fever, Chills, Sore Throat, Head or Body aches, and Nausea or Vomiting. It can be treated through Bloodletting, Surgery, Chemical Elixer, a Strong Sage Tea, applying 3 ounces of pig guts to the patient, or doing nothing.", 
+                         "Smallpox is an unpleasant disease characterised by Red spots on the skin, Fever, Fatigue, Back pain, and Abdominal pain with vomiting. "]
                 
 
             case _:

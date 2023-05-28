@@ -41,7 +41,19 @@ def format_string(input_string, *args):
     formatted_string = formatted_string.format(*args)
     return formatted_string
 
+def stringRender(content, font, newlnPos, surface, yOffset):
 
+        for i in newlnPos:
+            ln = content[:i]
+            content = content[i:]
+
+            renderedLn = font.render(ln, True, (255, 255, 255))
+            surface.blit(renderedLn, renderedLn.get_rect(x=40, y=yOffset))
+
+            yOffset += 20
+        
+        renderedLn = font.render(content, True, (255, 255, 255)) # final pass to clear the final line after a newline char
+        surface.blit(renderedLn, renderedLn.get_rect(x=40, y=yOffset))
 
 
 class textBox(pygame.sprite.Sprite):
@@ -104,19 +116,7 @@ class textBox(pygame.sprite.Sprite):
         content = get_line_from_file(self.textpath, textindex)
         newlnPos = getNewLines(self.fontBody, content)
 
-        yOffset = 40
-
-        for i in newlnPos:
-            ln = content[:i]
-            content = content[i:]
-
-            renderedLn = self.fontBody.render(ln, True, (255, 255, 255))
-            self.mainsurface.blit(renderedLn, renderedLn.get_rect(x=40, y=yOffset))
-
-            yOffset += 20
-        
-        renderedLn = self.fontBody.render(content, True, (255, 255, 255)) # final pass to clear the final line after a newline char
-        self.mainsurface.blit(renderedLn, renderedLn.get_rect(x=40, y=yOffset))
+        stringRender(content, self.fontBody, newlnPos, self.mainsurface, 40)
         
 
         buttongroup = pygame.sprite.Group()

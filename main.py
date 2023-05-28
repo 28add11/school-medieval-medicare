@@ -1,6 +1,6 @@
 import pygame
 from buttonhandle import button
-from textbox import textBox
+from textbox import textBox, getNewLines, stringRender
 
 pygame.init()
 
@@ -47,6 +47,9 @@ def main():
     clock = pygame.time.Clock()
     mbu = False
 
+    gameState = 0
+    currentText = 0
+
     screen.fill((56, 56, 56)) 
 
 
@@ -68,10 +71,16 @@ def main():
                 case pygame.MOUSEBUTTONUP:
                         mbu = True
 
-        buttonResult = textboxButtonDraw(screen, 6, testbox, mouse, mbu, "Rosemary", "Surgury")
+        # buttonResult = textboxButtonDraw(screen, 6, testbox, mouse, mbu, "Rosemary", "Surgury")
 
-        if buttonResult:
-            print(buttonResult)
+        match gameState:
+            case 0:
+                cutseneContent = """Today you start your journey as a doctor in the 17th century! After all your training you can finally get to diagnosing patients and GRAYSON THIS SHIT IS YOUR JOB. I really hope this isnt overlapping in a weird way fuck. OOh are we gonna get funny line changes from one to the other cuz its too late to fix this shit"""
+                # The fact that this all has to be a single line makes me want to die
+                newLines = getNewLines(gameFont, cutseneContent)
+                stringRender(cutseneContent, gameFont, newLines, screen, 50)
+
+
 
         mbu = False
 

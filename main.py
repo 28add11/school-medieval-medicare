@@ -48,7 +48,7 @@ def main():
     clock = pygame.time.Clock()
     mbu = False
 
-    gameState = 0
+    gameState = "newGame"
     currentText = 0
 
     newState = False
@@ -77,28 +77,36 @@ def main():
         # buttonResult = textboxButtonDraw(screen, 6, testbox, mouse, mbu, "Rosemary", "Surgury")
 
         match gameState:
-            case 0:
+            case "newGame":
                 cutseneContent = """Today you start your journey as a doctor in the 17th century! After all your training you can finally get to diagnosing patients and GRAYSON THIS SHIT IS YOUR JOB. I really hope this isnt overlapping in a weird way fuck. OOh are we gonna get funny line changes from one to the other cuz its too late to fix this shit"""
                 # The fact that this all has to be a single line makes me want to die
                 newLines = getNewLines(gameFont, cutseneContent)
                 stringRender(cutseneContent, gameFont, newLines, screen, 50)
                 screen.blit(gameFont.render("Click to continue...", True, (0, 0, 0)), (500, 400))
                 if mbu:
-                    gameState = 1
+                    gameState = "tutorial"
                     newState = True
                 else:
                     newState = False
             
-            case 1:
+            case "tutorial":
                 if newState:
                     tutorialPatient = patient()
                     tutPatientText = textBox((65, 67, 81), tutorialPatient.person.split("\\")[1], "patientLines.txt") # Cursed string splitting to get rid of filepath
                 newState = False
 
-                tutorialPatient.update("placeholder.png", screen, (0, 0))
-                screen.blit(tutPatientText.update(currentText), (0, 360, 640, 120))
-                if mbu:
-                    currentText += 1
+                match currentText:
+                    case 2:
+                        tutorialPatient.update("placeholder.png", screen, (0, 0))
+                        screen.blit(tutPatientText.update(currentText, (x for x in tutorialPatient.disease.symptoms)), (0, 360, 640, 120))
+                        if mbu:
+                            currentText += 1
+
+                    case _:
+                        tutorialPatient.update("placeholder.png", screen, (0, 0))
+                        screen.blit(tutPatientText.update(currentText), (0, 360, 640, 120))
+                        if mbu:
+                            currentText += 1
                 
 
             case _:

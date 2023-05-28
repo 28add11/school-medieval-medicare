@@ -1,4 +1,4 @@
-from random import choice, choices
+from random import choice, sample
 
 diseaseData = {"Scarlatina (Scarlet fever)" : {"Symptoms" : ["Fever", "Chills", "Sore Throat", "Head or Body ache's", "Nausea or Vomiting"],# Capitalised because masochism and also because you might want to display these
                       "Treatments" : {"Bloodletting" : "Flesh Decay", "3 Ounces of Pig guts" : "Death", "Nothing" : "Excruciating Pain", 
@@ -48,7 +48,7 @@ class disease():
                 else:
                     trueK = RNGmaxsymptoms
 
-                self.symptoms = choices(possibleSymptoms, k=trueK)
+                self.symptoms = sample(possibleSymptoms, k=trueK)
 
 
             else: # if you aren't allowed to repeat diseases...
@@ -68,7 +68,7 @@ class disease():
                     else:
                         trueK= RNGmaxsymptoms
 
-                    self.symptoms = choices(possibleSymptoms, k=trueK)
+                    self.symptoms = sample(possibleSymptoms, k=trueK)
                     
         
         else:

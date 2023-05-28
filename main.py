@@ -98,7 +98,7 @@ def main():
                 match currentText:
                     case 2:
                         tutorialPatient.update("placeholder.png", screen, (0, 0))
-                        screen.blit(tutPatientText.update(currentText, (x for x in tutorialPatient.disease.symptoms)), (0, 360, 640, 120))
+                        screen.blit(tutPatientText.update(currentText, *tutorialPatient.disease.symptoms), (0, 360, 640, 120))
                         if mbu:
                             currentText += 1
 

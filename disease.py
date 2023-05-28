@@ -1,6 +1,6 @@
 from random import choice, sample
 
-diseaseData = {"Scarlatina (Scarlet fever)" : {"Symptoms" : ["Fever", "Chills", "Sore Throat", "Head or Body ache's", "Nausea or Vomiting"],# Capitalised because masochism and also because you might want to display these
+diseaseData = {"Scarlatina (Scarlet fever)" : {"Symptoms" : ["Fever", "Chills", "Sore Throat", "Head or Body aches", "Nausea or Vomiting"],# Capitalised because masochism and also because you might want to display these
                       "Treatments" : {"Bloodletting" : "Flesh Decay", "3 Ounces of Pig guts" : "Death", "Nothing" : "Excruciating Pain", 
                                             "Surgery" : "Excrutiating pain and contamination", "Chemical Elixer" : "Foaming from the mouth and high possibility of death", 
                                             "Strong Sage Tea" : "Decent healing effects?"}},

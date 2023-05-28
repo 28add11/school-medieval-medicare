@@ -78,4 +78,7 @@ class disease():
                 self.symptoms.append(diseaseData[disease]["Symptoms"][i]) # so many square brackets
 
         self.treatments = [] # Start treatments uninitialised because you are a doctor and that is your job
+    
+    
+        prevDiseases.append(self.disease)
             

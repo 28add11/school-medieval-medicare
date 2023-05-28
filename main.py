@@ -79,6 +79,15 @@ def main():
                 # The fact that this all has to be a single line makes me want to die
                 newLines = getNewLines(gameFont, cutseneContent)
                 stringRender(cutseneContent, gameFont, newLines, screen, 50)
+                screen.blit(gameFont.render("Click to continue...", True, (0, 0, 0)), (500, 400))
+                if mbu:
+                    gameState = 1
+            
+            case 1:
+                pass
+
+            case _:
+                pass
 
 
 

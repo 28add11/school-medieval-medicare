@@ -41,7 +41,7 @@ def textboxButtonDraw(surface : pygame.Surface, textindex : int, textbox : textB
 
 def main():
     
-    testbox = textBox((65, 67, 81, 255), "ball itcher", r"text.txt")
+    testbox = textBox((65, 67, 81), "ball itcher", r"text.txt")
 
     screen = pygame.display.set_mode((640, 480))
     running = True
@@ -50,6 +50,8 @@ def main():
 
     gameState = 0
     currentText = 0
+
+    newState = False
 
     screen.fill((56, 56, 56)) 
 
@@ -83,9 +85,21 @@ def main():
                 screen.blit(gameFont.render("Click to continue...", True, (0, 0, 0)), (500, 400))
                 if mbu:
                     gameState = 1
+                    newState = True
+                else:
+                    newState = False
             
             case 1:
-                tutorialPatient = patient()
+                if newState:
+                    tutorialPatient = patient()
+                    tutPatientText = textBox((65, 67, 81), tutorialPatient.person.split("\\")[1], "patientLines.txt") # Cursed string splitting to get rid of filepath
+                newState = False
+
+                tutorialPatient.update("placeholder.png", screen, (0, 0))
+                screen.blit(tutPatientText.update(currentText), (0, 360, 640, 120))
+                if mbu:
+                    currentText += 1
+                
 
             case _:
                 pass

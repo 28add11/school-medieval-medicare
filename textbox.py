@@ -102,29 +102,3 @@ class textBox(pygame.sprite.Sprite):
         self.mainsurface.blit(renderedLn, renderedLn.get_rect(x=40, y=yOffset))
 
         return self.mainsurface
-    
-    def updateWithButtons(self, textindex : int, mousepos, mouseButtonUp, *args):
-        '''Same as update but includes amount of buttons preportional to the amount of args. Does not support variable included body text.'''
-
-        self.mainsurface.fill(self.color)
-
-        titleRender = self.titlefont.render(self.title, True, (255, 255, 255))
-        self.mainsurface.blit(titleRender, titleRender.get_rect(x=40, y=7))
-
-        pygame.draw.line(self.mainsurface, (40, 40, 40), (0, 30), (640, 30))
-
-        content = get_line_from_file(self.textpath, textindex)
-        newlnPos = getNewLines(self.fontBody, content)
-
-        stringRender(content, self.fontBody, newlnPos, self.mainsurface, 40)
-        
-
-        buttongroup = pygame.sprite.Group()
-
-        argsIndex = 0
-        for i in args:
-            buttongroup.add(button(pygame.Rect((argsIndex * 70) + 200, 2.5, 50, 25), (170, 170, 170), i, 0, (argsIndex * 70 + 210, 10)))
-            argsIndex += 1
-        buttongroup.update(self.mainsurface, mousepos, mouseButtonUp, self.titlefont)
-
-        return self.mainsurface

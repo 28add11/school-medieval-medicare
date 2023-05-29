@@ -1,11 +1,22 @@
 from random import choice, sample, shuffle
 
 diseaseData = {"Scarlatina (Scarlet fever)" : {"Symptoms" : ["Fever", "Chills", "Sore Throat", "Head or Body aches", "Nausea or Vomiting"],# Capitalised because masochism and also because you might want to display these
-                      "Treatments" : {"Bloodletting" : "Flesh Decay", "3 Ounces of Pig guts" : "Death", "Nothing" : "Excruciating Pain", 
-                                            "Surgery" : "Excrutiating pain and contamination", "Chemical Elixer" : "Foaming from the mouth and high possibility of death", 
-                                            "Strong Sage Tea" : "Decent healing effects?"}},
+                      "Treatments" : {"Bloodletting" : "Flesh Decay - Death", "3 Ounces of Pig guts" : "Contamination and disease - Death", "Nothing" : "Excruciating Pain - Death", 
+                                            "Surgery" : "Excrutiating pain and contamination - Death", "Chemical Elixer" : "Foaming from the mouth - Death", 
+                                            "Strong Sage Tea" : "Decent healing effects? - Long lasting bodily issues and pain but was successful"}},
                "Small Pox" : {"Symptoms" : ["Red spots on skin", "Fever", "Fatigue", "Back pain", "Abdominal pain and vomiting"],
-                              "Treatments" : {"placeholder" : "placeholder"} }}
+                      "Treatments" : {"Bloodletting" : "Flesh Decay - Death", "3 Ounces of Pig guts" : "Contamination and disease - Death", "Nothing" : "Excruciating Pain - Death", 
+                                            "Surgery" : "Excrutiating pain and contamination - Death", "Chemical Elixer" : "Foaming from the mouth - Death", 
+                                            "Strong Sage Tea" : "Tastes good - Death"}},
+                "Black Plague" : {"Symptoms" : ["Gangrene/black fingers", "Bubos", "Fever", "Weakness", "Head pain"],
+                      "Treatments" : {"Bloodletting" : "Flesh Decay - Death", "3 Ounces of Pig guts" : "Contamination and disease - Death", "Nothing" : "Excruciating Pain - Death", 
+                                            "Surgery" : "Excrutiating pain and contamination - Death", "Chemical Elixer" : "Foaming from the mouth - Death", 
+                                            "Strong Sage Tea" : "Tastes good - Death"}},
+                "Lepers (Divine punishment, The living death)" : {"Symptoms" : ["Cannot register pain", "Discolored/thick and stiff skin", "Painless ulcurs on the soles of the feet", "Loss of eybrows/eylashes", "Painless swelling lumps on face or earlobes"],
+                      "Treatments" : {"Bloodletting" : "Flesh Decay - Death", "3 Ounces of Pig guts" : "Contamination and disease - Death", "Nothing" : "Excruciating Pain - Death", 
+                                            "Surgery" : "Excrutiating pain and contamination - Death", "Chemical Elixer" : "Odd smell? - It seems something good was mixed inside! life", 
+                                            "Strong Sage Tea" : "Tastes good - Death"}}, }
+                              
 
 treatmentData = ("Bloodletting", "3 Ounces of Pig guts" , "Nothing", "Surgery", "Chemical Elixer", "Strong Sage Tea", "placeholder")
 

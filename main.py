@@ -41,7 +41,7 @@ def textboxButtonDraw(surface : pygame.Surface, textindex : int, textbox : textB
 
 def main():
     
-    testbox = textBox((65, 67, 81), "ball itcher", r"text.txt")
+    chorusText = textBox((65, 67, 81), "Chorus", r"text.txt")
     bookSprite = pygame.image.load("book.png")
 
     screen = pygame.display.set_mode((640, 480))
@@ -114,15 +114,53 @@ def main():
                             currentText += 1
                 
                 screen.blit(bookSprite, (565, 405))
-                if pygame.Rect(565, 405, 75, 75).collidepoint(mouse):
+                if pygame.Rect(565, 405, 75, 75).collidepoint(mouse) and mbu:
+                    
+                    currentText -= 1 # decrement because elsewise a button click would count to move the text forward
                     gameState = "book"
                     prevstate = "tutorial"
                     prevtext = currentText
+                    newState = True
 
                         
             case "book":
-                pages = ["Scarlatina can manifest itself in a variety of ways, such as Fever, Chills, Sore Throat, Head or Body aches, and Nausea or Vomiting. It can be treated through Bloodletting, Surgery, Chemical Elixer, a Strong Sage Tea, applying 3 ounces of pig guts to the patient, or doing nothing.", 
-                         "Smallpox is an unpleasant disease characterised by Red spots on the skin, Fever, Fatigue, Back pain, and Abdominal pain with vomiting. "]
+                if newState:
+                    pages = ["Scarlatina can manifest itself in a variety of ways, such as Fever, Chills, Sore Throat, Head or Body aches, and Nausea or Vomiting. It can be treated through Bloodletting, Surgery, Chemical Elixer, a Strong Sage Tea, applying 3 ounces of pig guts to the patient, or doing nothing.", 
+                             "Smallpox is an unpleasant disease characterised by Red spots on the skin, Fever, Fatigue, Back pain, and Abdominal pain with vomiting."]
+                    currentText = 0
+                
+                newLines = getNewLines(gameFont, pages[currentText])
+                stringRender(pages[currentText], gameFont, newLines, screen, 50)
+
+                newState = False
+
+                pygame.draw.rect(screen, (170, 170, 170), (280, 440, 40, 20))
+                
+                screen.blit(gameFont.render("Back", True, (0, 0, 0)), (285, 440))
+
+                if pygame.Rect(280, 440, 40, 20).collidepoint(mouse) and mbu:
+                    gameState = prevstate
+                    currentText = prevtext
+                    prevstate = "book"
+                    prevtext = currentText 
+                    # Not setting "newState" because all things going to the book function will be already initialized
+
+                arrowL = pygame.transform.scale(pygame.image.load("arrowL.png"), (75, 75))
+                arrowR = pygame.transform.scale(pygame.image.load("arrowR.png"), (75, 75))
+                screen.blit(arrowL, (0, 405))
+                screen.blit(arrowR, (565, 405)) # Yes I know having two sprites is redundant but i only found that out a bit ago and its too late
+
+                if pygame.Rect(0, 405, 75, 75).collidepoint(mouse) and mbu:
+                    if currentText == 0:
+                        currentText = len(pages) - 1
+                    else:
+                        currentText -= 1
+
+                elif pygame.Rect(565, 405, 75, 75).collidepoint(mouse) and mbu:
+                    if currentText == len(pages) - 1:
+                        currentText = 0
+                    else:
+                        currentText += 1
                 
 
             case _:

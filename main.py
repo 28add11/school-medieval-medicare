@@ -2,6 +2,7 @@ import pygame
 from buttonhandle import button
 from textbox import textBox, getNewLines, stringRender
 from patient import patient
+from disease import getRandomTreatments
 
 pygame.init()
 
@@ -41,7 +42,7 @@ def textboxButtonDraw(surface : pygame.Surface, textindex : int, textbox : textB
 
 def main():
     
-    chorusText = textBox((65, 67, 81), "Chorus", r"text.txt")
+    chorusText = textBox((65, 67, 81), "Chorus", r"chorus.txt")
     bookSprite = pygame.image.load("book.png")
 
     screen = pygame.display.set_mode((640, 480))
@@ -106,6 +107,15 @@ def main():
                         screen.blit(tutPatientText.update(currentText, *tutorialPatient.disease.symptoms), (0, 360, 640, 120))
                         if mbu:
                             currentText += 1
+
+                    case 3:
+                        tutorialPatient.update("placeholder.png", screen, (0, 0))
+                        screen.blit(chorusText.update(0), (0, 360, 640, 120))
+                        if mbu:
+                            currentText += 1
+
+                    case 4:
+                        textboxButtonDraw(screen, 3, tutPatientText, mouse, mbu, *getRandomTreatments(tutorialPatient.disease.disease, 3))
 
                     case _:
                         tutorialPatient.update("placeholder.png", screen, (0, 0))

@@ -1,12 +1,13 @@
-from random import choice, sample
+from random import choice, sample, shuffle
 
 diseaseData = {"Scarlatina (Scarlet fever)" : {"Symptoms" : ["Fever", "Chills", "Sore Throat", "Head or Body aches", "Nausea or Vomiting"],# Capitalised because masochism and also because you might want to display these
                       "Treatments" : {"Bloodletting" : "Flesh Decay", "3 Ounces of Pig guts" : "Death", "Nothing" : "Excruciating Pain", 
                                             "Surgery" : "Excrutiating pain and contamination", "Chemical Elixer" : "Foaming from the mouth and high possibility of death", 
                                             "Strong Sage Tea" : "Decent healing effects?"}},
-               "Small Pox" : {"Symptoms" : ["Red spots on skin", "Fever", "Fatigue", "Back pain", "Abdominal pain and vomiting"] }}
+               "Small Pox" : {"Symptoms" : ["Red spots on skin", "Fever", "Fatigue", "Back pain", "Abdominal pain and vomiting"],
+                              "Treatments" : {"placeholder" : "placeholder"} }}
 
-treatmentData = ("Bloodletting", "3 Ounces of Pig guts" , "Nothing", "Surgery", "Chemical Elixer", "Strong Sage Tea")
+treatmentData = ("Bloodletting", "3 Ounces of Pig guts" , "Nothing", "Surgery", "Chemical Elixer", "Strong Sage Tea", "placeholder")
 
 symptomDialouge = ("")
 
@@ -27,6 +28,27 @@ def nonUsedDiseases(): # I know that I shouldn't use globals like this, but it i
         return -1
     else:
         return non_duplicate_strings
+    
+
+
+def get_random_items_with_specified_item(lst, specified_item, n):
+    # Remove the specified item from the list
+    lst_without_specified = [item for item in lst if item != specified_item]
+
+    # Check if n-1 items are available without the specified item
+    if n - 1 > len(lst_without_specified):
+        raise ValueError("Not enough items available without the specified item.")
+
+    # Get n-1 random items from the list without the specified item
+    random_items = sample(lst_without_specified, n - 1)
+
+    # Add the specified item to the random items
+    random_items.append(specified_item)
+
+    # Shuffle the random items to ensure randomness
+    shuffle(random_items)
+
+    return random_items
 
 
 class disease():
@@ -82,3 +104,11 @@ class disease():
     
         prevDiseases.append(self.disease)
             
+
+
+def getRandomTreatments(disease : disease, numOfTreatments : int):
+    # I hate this function so much but there's not a better way to do this that preserves readability
+    # That and also chatGPT wrote the other function and im too scared to touch it
+
+    requiredTreatment = choice(diseaseData[disease.disease]["Treatments"].keys()) # all of this is just to get a treatment that would be used for the disease in question
+    return get_random_items_with_specified_item(treatmentData, requiredTreatment, numOfTreatments)

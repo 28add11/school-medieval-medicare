@@ -30,5 +30,5 @@ class patient(pygame.sprite.Sprite):
         pygame.sprite.Sprite.__init__(self)
     
     def update(self, sprite, surface, spritecoords):
-        currentsprite  = pygame.image.load(self.person + r"\{}".format(sprite))
+        currentsprite  = pygame.transform.scale(pygame.image.load(self.person + r"\{}".format(sprite)), (600, 600))
         surface.blit(currentsprite, spritecoords)

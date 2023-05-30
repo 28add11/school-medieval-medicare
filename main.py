@@ -99,13 +99,13 @@ def main():
 
                 match currentText:
                     case 2:
-                        Patient.update("forward.png", screen, (0, 0))
+                        Patient.update("forward.png", screen, (100, -100))
                         screen.blit(PatientText.update(currentText, *Patient.disease.symptoms), (0, 360, 640, 120))
                         if mbu:
                             currentText += 1
 
                     case 3:
-                        Patient.update("forward.png", screen, (0, 0))
+                        Patient.update("forward.png", screen, (100, -100))
                         screen.blit(PatientText.update(currentText, *Patient.disease.symptoms), (0, 360, 640, 120))
 
                         pressedTreatment = textboxButtonDraw(screen, currentText, PatientText, mouse, mbu, *possibleTreatments)
@@ -117,7 +117,7 @@ def main():
                         gameState = "outcome"
 
                     case _:
-                        Patient.update("forward.png", screen, (0, 0))
+                        Patient.update("forward.png", screen, (100, -100))
                         screen.blit(PatientText.update(currentText), (0, 360, 640, 120))
                         if mbu:
                             currentText += 1
@@ -130,6 +130,7 @@ def main():
                 if mbu:
                     gameState  = "patient"
                     currentText = 0
+                    newState = True
                 
 
 

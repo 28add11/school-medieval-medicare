@@ -126,6 +126,10 @@ def main():
                 content = "The outcome of what you prescribed would be: {}".format(getOutcome(pressedTreatment, Patient.disease.disease))
                 newLines = getNewLines(gameFont, content)
                 stringRender(content, gameFont, newLines, screen, 50)
+                screen.blit(gameFont.render("Click to continue...", True, (0, 0, 0)), (500, 400))
+                if mbu:
+                    gameState  = "patient"
+                    currentText = 0
                 
 
 

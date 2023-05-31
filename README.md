@@ -18,3 +18,4 @@ Your antivirus will likely flag this as a suspicious program, but that can be ig
 </p>
 
 <h6>"If you have any more questions / bug reports, feel free to reach me from whatever source I sent this game to you. Enjoy playing!"</h6>
+<h9>Please for the love of god don't contact me about this unless you are directly related to this I do not want to have to maintain anything about this ever</h9>

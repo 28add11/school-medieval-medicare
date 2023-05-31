@@ -12,7 +12,7 @@ diseaseData = {"Scarlatina (Scarlet fever)" : {"Symptoms" : ["Fever", "Chills", 
                       "Treatments" : {"Bloodletting" : "Flesh Decay - Death", "3 Ounces of Pig guts" : "Contamination and disease - Death", "Nothing" : "Excruciating Pain - Death", 
                                             "Surgery" : "Excrutiating pain and contamination - Death", "Chemical Elixer" : "Foaming from the mouth - Death", 
                                             "Strong Sage Tea" : "Tastes good - Death"}},
-                "Lepers (Divine punishment, The living death)" : {"Symptoms" : ["Cannot register pain", "Discolored/thick and stiff skin", "Painless ulcurs on the soles of the feet", "Loss of eybrows/eylashes", "Painless swelling lumps on face or earlobes"],
+                "Lepers (Divine punishment, The living death)" : {"Symptoms" : ["Cannot register pain", "Discolored/thick and stiff skin", "Painless ulcurs on the soles of the feet", "Loss of eyebrows/eyelashes", "Painless swelling lumps on face or earlobes"],
                       "Treatments" : {"Bloodletting" : "Flesh Decay - Death", "3 Ounces of Pig guts" : "Contamination and disease - Death", "Nothing" : "Excruciating Pain - Death", 
                                             "Surgery" : "Excrutiating pain and contamination - Death", "Chemical Elixer" : "Odd smell? - It seems something good was mixed inside! life", 
                                             "Strong Sage Tea" : "Tastes good - Death"}}, }

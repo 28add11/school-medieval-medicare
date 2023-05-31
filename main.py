@@ -1,5 +1,4 @@
 import pygame
-from buttonhandle import button
 from textbox import textBox, getNewLines, stringRender
 from patient import patient
 from disease import getRandomTreatments, getOutcome

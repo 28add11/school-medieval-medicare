@@ -6,7 +6,8 @@ from disease import getRandomTreatments, getOutcome
 
 pygame.init()
 
-gameFont = pygame.font.SysFont("arial", 15)
+buttonFont = pygame.font.SysFont("arial", 15)
+gameFont = pygame.font.SysFont("arial", 25)
 
 
 def textboxButtonDraw(surface : pygame.Surface, textindex : int, textbox : textBox, mousepos : tuple, mouseButtonUp : bool, *args):
@@ -24,7 +25,7 @@ def textboxButtonDraw(surface : pygame.Surface, textindex : int, textbox : textB
         rect = pygame.Rect((argsIndex * 150) + 200, 2.5, 130, 25)
         pygame.draw.rect(workingSurface, (170, 170, 170), rect)
 
-        text = gameFont.render(i, True, (10, 10, 10))
+        text = buttonFont.render(i, True, (10, 10, 10))
         text_rect = text.get_rect(center=((argsIndex * 150) + 260, 25/2))
 
         workingSurface.blit(text, text_rect)
@@ -54,6 +55,8 @@ def main():
 
     screen.fill((56, 56, 56)) 
 
+    chorusText = textBox((65, 67, 81), 'Chorus', "patientLines.txt")
+
 
     while running:
 
@@ -80,8 +83,8 @@ def main():
                 cutseneContent = """People from all over the kingdom have been getting sick recently! After your extensive week training and preparation you have finally opened shop. Treat your patients the best you can or they will die. """
                 # The fact that this all has to be a single line makes me want to die
                 newLines = getNewLines(gameFont, cutseneContent)
-                stringRender(cutseneContent, gameFont, newLines, screen, 50)
-                screen.blit(gameFont.render("Click to continue...", True, (0, 0, 0)), (500, 400))
+                stringRender(cutseneContent, gameFont, newLines, screen, 40)
+                screen.blit(gameFont.render("Click to continue...", True, (0, 0, 0)), (400, 400))
                 if mbu:
                     gameState = "patient"
                     newState = True
@@ -97,7 +100,19 @@ def main():
 
                 
 
-                match currentText:
+                match currentText: # shitty state machine for the lines
+
+                    case 0:
+                        Patient.update("forward.png", screen, (100, -100))
+                        screen.blit(chorusText.update(currentText), (0, 360, 640, 120))
+                        if mbu:
+                            currentText += 1
+                    case 1:
+                        Patient.update("forward.png", screen, (100, -100))
+                        screen.blit(chorusText.update(currentText), (0, 360, 640, 120))
+                        if mbu:
+                            currentText += 1
+
                     case 2:
                         Patient.update("forward.png", screen, (100, -100))
                         screen.blit(PatientText.update(currentText, *Patient.disease.symptoms), (0, 360, 640, 120))
@@ -126,7 +141,7 @@ def main():
                 content = "The outcome of what you prescribed would be: {}".format(getOutcome(pressedTreatment, Patient.disease.disease))
                 newLines = getNewLines(gameFont, content)
                 stringRender(content, gameFont, newLines, screen, 50)
-                screen.blit(gameFont.render("Click to continue...", True, (0, 0, 0)), (500, 400))
+                screen.blit(gameFont.render("Click to continue...", True, (0, 0, 0)), (400, 400))
                 if mbu:
                     gameState  = "patient"
                     currentText = 0

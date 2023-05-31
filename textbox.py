@@ -1,5 +1,4 @@
 import pygame
-from buttonhandle import button
 
 def get_line_from_file(file_path, line_number):
     with open(file_path, 'r') as file:
@@ -43,17 +42,19 @@ def format_string(input_string, *args):
 
 def stringRender(content, font, newlnPos, surface, yOffset):
 
-        for i in newlnPos:
-            ln = content[:i]
-            content = content[i:]
+    originalYoff = yOffset
 
-            renderedLn = font.render(ln, True, (255, 255, 255))
-            surface.blit(renderedLn, renderedLn.get_rect(x=40, y=yOffset))
+    for i in newlnPos:
+        ln = content[:i]
+        content = content[i:]
 
-            yOffset += 20
-        
-        renderedLn = font.render(content, True, (255, 255, 255)) # final pass to clear the final line after a newline char
+        renderedLn = font.render(ln, True, (255, 255, 255))
         surface.blit(renderedLn, renderedLn.get_rect(x=40, y=yOffset))
+
+        yOffset += originalYoff
+    
+    renderedLn = font.render(content, True, (255, 255, 255)) # final pass to clear the final line after a newline char
+    surface.blit(renderedLn, renderedLn.get_rect(x=40, y=yOffset))
 
 
 class textBox(pygame.sprite.Sprite):

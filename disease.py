@@ -27,7 +27,7 @@ treatmentDialouge = {"Bloodletting" : ["Oh great heavens!!! That hurts!"],
                     "Nothing" : ["I bite my thumb at thee!"],
                     "Surgery" : ["*Earsplitting scream of a peasants pain*"],
                     "Chemical Elixer" : ["*Gargle* *Gargle*"],
-                    "Strong Sage Tea" : ["*Sluuuuuuuuurp...* Quite refined kind gentleperson"]}
+                    "Strong Sage Tea" : ["*Sluuuuuuuuurp...* Quite refined, kind gentleperson"]}
 
 
 prevDiseases = [] #Add to this whenever a disease is used before for RNG

@@ -77,7 +77,7 @@ def main():
 
         match gameState:
             case "newGame":
-                cutseneContent = """Today you start your journey as a doctor in the 17th century! After all your training you can finally get to diagnosing patients and GRAYSON THIS SHIT IS YOUR JOB. I really hope this isnt overlapping in a weird way fuck. OOh are we gonna get funny line changes from one to the other cuz its too late to fix this shit"""
+                cutseneContent = """People from all over the kingdom have been getting sick recently! After your extensive week training and preparation you have finally opened shop. Treat your patients the best you can or they will die. """
                 # The fact that this all has to be a single line makes me want to die
                 newLines = getNewLines(gameFont, cutseneContent)
                 stringRender(cutseneContent, gameFont, newLines, screen, 50)
